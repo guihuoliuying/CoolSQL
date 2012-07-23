@@ -1,0 +1,11 @@
+CoolSQL uses the following libraries:
+
+	Apache log4j (http://jakarta.apache.org/log4j) Logging API.
+	jdic (https://jdic.dev.java.net/)
+	Hibernate (http://www.hibernate.org/)
+	jide (http://www.jidesoft.com/)
+	Apache POI (http://poi.apache.org/)
+	velocity (http://velocity.apache.org/)
+	wizard (https://wizard.dev.java.net/)
+	l2fprod (http://www.l2fprod.com/) Font chooser
+	

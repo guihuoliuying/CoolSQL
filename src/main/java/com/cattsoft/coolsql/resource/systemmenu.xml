@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+all children element:
+	1. menu
+-->
+<menus>
+<!--
+          menuProperties:
+              1.label
+              2.disabled
+              3.location
+              4.loadlistener
+              5.icon
+          
+          menuItemProperties:
+          	  1.label
+          	  2.type(plain,check,radio)
+          	  3.loadlistener
+          	  4.icon
+          menuItem subElement:
+              1.tooltip
+              2.action Class
+              3.shortcut
+              4.enableCheck
+              5.icon  ->
+              			property:
+              			        1.type(file,resource)  //file:本地文件，resource:资源绑定
+               
+ -->
+<menu label="$file_label" mnemonic="F">
+	<!-- new bookmark action-->
+	<MenuItem >
+		<action>com.coolsql.system.menu.action.NewBookmarkMenuAction</action>
+	</MenuItem>
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.action.ExtraFileManageAction</action>
+	</MenuItem>
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.action.GlobalSettingAction</action>
+	</MenuItem>
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.action.ExitAction</action>
+	</MenuItem>
+</menu>
+<menu label="${edit}" mnemonic="E">
+	<MenuItem >
+		<action>com.coolsql.system.menu.action.UndoMenuAction</action>
+	</MenuItem>
+	<MenuItem>
+		<action>com.coolsql.system.menu.action.RedoMenuAction</action>
+	</MenuItem>	
+	<separator/>
+	<MenuItem disabled="true">
+		<action>com.coolsql.system.menu.action.CutMenuAction</action>
+	</MenuItem>
+	<MenuItem disabled="true">
+		<action>com.coolsql.system.menu.action.CopyMenuAction</action>
+	</MenuItem>
+	<MenuItem>
+		<action>com.coolsql.system.menu.action.PasteMenuAction</action>
+	</MenuItem>
+	<MenuItem >
+		<action>com.coolsql.system.menu.action.SelectAllMenuAction</action>
+		<icon>blank</icon>
+	</MenuItem>
+	<MenuItem >
+		<action>com.coolsql.view.sqleditor.action.SQLEditorFindAction</action>
+	</MenuItem>
+	<separator/>
+	<MenuItem >
+		<action>com.coolsql.system.menu.action.ToggleCommentAction</action>
+		<icon>blank</icon>
+	</MenuItem>	
+	<MenuItem disabled="true">
+		<action>com.coolsql.system.menu.action.UpperSelectedTextAction</action>
+		<icon>blank</icon>
+	</MenuItem>	
+	<MenuItem disabled="true">
+		<action>com.coolsql.system.menu.action.LowerSelectedTextAction</action>
+		<icon>blank</icon>
+	</MenuItem>	
+	<MenuItem disabled="false">
+		<action>com.coolsql.system.menu.action.DeleteSelectedLinesAction</action>
+		<icon>blank</icon>
+	</MenuItem>	
+</menu>
+<menu label="$frame" mnemonic="V">
+	<menu label="$view">
+		<MenuItem type="check" loadlistener="com.coolsql.system.menu.loadlistener.BookmarkViewDisplayCheckListener">
+			<action>com.coolsql.system.menu.action.BookmarkViewDisplayAction</action>
+		</MenuItem>
+		<MenuItem type="check" loadlistener="com.coolsql.system.menu.loadlistener.SqlEditorViewDisplayCheckListener">
+			<action>com.coolsql.system.menu.action.SQLEditorViewDisplayAction</action>
+		</MenuItem>
+		<MenuItem type="check" loadlistener="com.coolsql.system.menu.loadlistener.ResultSetViewDisplayCheckListener">
+			<action>com.coolsql.system.menu.action.ResultSetViewDisplayAction</action>
+		</MenuItem>
+		<MenuItem type="check" loadlistener="com.coolsql.system.menu.loadlistener.LogViewDisplayCheckListener">
+			<action>com.coolsql.system.menu.action.LogViewDisplayAction</action>
+		</MenuItem>		
+		
+	</menu>
+	<MenuItem type="check" loadlistener="com.coolsql.system.menu.loadlistener.ShowLineMenuLoadListener">
+		<action>com.coolsql.system.menu.action.ShowSqlEditorLineNumberAction</action>			
+	</MenuItem>	
+	<MenuItem type="check" loadlistener="com.coolsql.system.menu.loadlistener.ShowSystemStatusBarMenuLoadListener">
+		<action>com.coolsql.system.menu.action.ShowSystemStatusBarAction</action>			
+	</MenuItem>		
+	<separator/>
+	<MenuItem >
+		<action>com.coolsql.view.sqleditor.action.PreviousDefaultBookmarkAction</action>
+	</MenuItem>
+	<MenuItem >
+		<action>com.coolsql.view.sqleditor.action.NextDefaultBookmarkAction</action>
+	</MenuItem>
+</menu>
+<menu label="$favorite" mnemonic="O">
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.menu.action.CollectSQLAction</action>
+	</MenuItem>
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.menu.action.AddSelectedTextAsFavoriteAction</action>
+	</MenuItem>
+	<MenuItem icon="system.icon.favorite">
+		<action>com.coolsql.system.menu.action.AdjustFavoriteAction</action>
+	</MenuItem>
+	<separator/>
+	<Menu label="${favorite_firstdisplay}" icon="blank" loadlistener="com.coolsql.system.menu.loadlistener.FavoriteMenuLoadListener">
+	</Menu>
+</menu>
+<menu label="SQL/Data" mnemonic="S" loadlistener="com.coolsql.system.menu.loadlistener.SQLMenuLoadListener">
+	<MenuItem>
+		<action>com.coolsql.action.sqleditormenu.AutoSelectAction</action>
+	</MenuItem>
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.sqleditor.action.SQLExcuteAction</action>
+	</MenuItem>
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.sqleditor.action.MultiStatementExecuteAction</action>
+	</MenuItem>
+	<MenuItem icon="blank">
+		<action>com.coolsql.view.sqleditor.FormatSQLAction</action>
+	</MenuItem>
+	<separator/>
+	
+	<MenuItem loadlistener="com.coolsql.system.menu.loadlistener.EnableAutoCommitMenuListener">
+		<action>com.coolsql.view.sqleditor.action.EnableAutoCommitAction</action>
+	</MenuItem>
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.sqleditor.action.CommitAction</action>
+	</MenuItem>
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.sqleditor.action.RollbackAction</action>
+	</MenuItem>
+	
+	<separator/>
+	<MenuItem>
+		<action>com.coolsql.view.resultset.action.PrePageProcessAction</action>
+	</MenuItem>
+	<MenuItem>
+		<action>com.coolsql.view.resultset.action.NextPageProcessAction</action>
+	</MenuItem>
+	<MenuItem>
+		<action>com.coolsql.view.resultset.action.QueryAllRowsAction</action>
+	</MenuItem>
+	<MenuItem>
+		<action>com.coolsql.view.resultset.action.RefreshQueryAction</action>
+	</MenuItem>	
+	<MenuItem icon="blank">
+		<action>com.coolsql.view.resultset.action.CopyAsSqlInsertAction</action>
+	</MenuItem>	
+	<separator/>
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.resultset.action.ChangeStatusOfDataSetPanelAction</action>
+	</MenuItem>	
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.resultset.action.RestoreCellAction</action>
+	</MenuItem>	
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.resultset.action.DeleteRowsAction</action>
+	</MenuItem>	
+	<MenuItem disabled="true" icon="blank">
+		<action>com.coolsql.view.resultset.action.CancelDeleteRowsAction</action>
+	</MenuItem>	
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.resultset.action.EditInDialogAction</action>
+	</MenuItem>		
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.resultset.action.ShowColumnSelectDialogAction</action>
+	</MenuItem>		
+	<MenuItem disabled="true">
+		<action>com.coolsql.view.resultset.action.SaveChangeToDBAction</action>
+	</MenuItem>		
+	<MenuItem >
+		<action>com.coolsql.view.resultset.action.UpdateRowActioin</action>
+	</MenuItem>		
+</menu>
+<menu label="$tools" mnemonic="T">
+	<!-- find menu-->
+	<MenuItem >
+		<action>com.coolsql.action.bookmarkmenu.SearchAction</action>
+	</MenuItem>
+	<MenuItem icon="system.icon.history">
+		<action>com.coolsql.action.common.SQLHistoryAction</action>
+	</MenuItem>	
+	<MenuItem >
+		<action>com.coolsql.view.resultset.action.AddNewDataAction</action>
+	</MenuItem>		
+	<separator/>
+	<MenuItem icon="system.icon.executescript">
+		<action>com.coolsql.system.menu.action.ExecuteScriptAction</action>
+	</MenuItem>
+</menu>
+<menu label="$help" mnemonic="H">
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.menu.action.AboutAction</action>
+	</MenuItem>
+	<MenuItem icon="blank">
+		<action>com.coolsql.system.menu.action.EditShortcutsAction</action>
+	</MenuItem>
+</menu>
+</menus>
